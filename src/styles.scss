@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins-Light";
+  color: white;
+  letter-spacing: 1.3px;
+}
+html {
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins-Regular.ttf") format("trueType");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("assets/fonts/Poppins-Light.ttf") format("trueType");
+  font-style: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Poppins-Bold-Italic";
+  src: url("assets/fonts/Poppins-BoldItalic.ttf") format("trueType");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("assets/fonts/Poppins-Medium.ttf") format("trueType");
+  font-style: normal;
+}
