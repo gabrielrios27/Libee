@@ -30,6 +30,13 @@
     rgba(0, 0, 0, 0) 100%
   );
 }
+.navBtn {
+  display: none;
+  .navBtn__btn {
+    .navBtn__line {
+    }
+  }
+}
 .logo {
   display: flex;
   align-items: center;
@@ -192,6 +199,7 @@
     }
     .about__title--italic {
       font-family: "Poppins-Bold-Italic";
+      font-display: swap;
     }
     .about__containerDescriptions {
       padding: 0 3.88em;
@@ -245,6 +253,7 @@
   }
   .afinity__title--boldItalic {
     font-family: "Poppins-Bold-Italic";
+    font-display: swap;
   }
   .afinity__containerCards {
     width: 100%;
@@ -575,6 +584,14 @@
   .home {
     font-size: 9px;
   }
+  // .navbar {
+  //   .navList {
+  //     display: none;
+  //   }
+  // }
+  // .navBtn {
+  //   display: flex;
+  // }
   .network {
     font-size: 7px;
   }
@@ -674,10 +691,10 @@
     font-size: 9px;
   }
   .navbar {
-    padding: 1.5em 3em;
-    .navList {
-      display: none;
-    }
+    padding: 1.5em 2.5em;
+  }
+  .navList {
+    margin-right: 0;
   }
   .home {
     padding: 0 3em;

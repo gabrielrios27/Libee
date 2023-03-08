@@ -19,6 +19,11 @@
         <a class="navList__link" href="#contact">Contacto</a>
       </li>
     </ul>
+    <div class="navBtn">
+      <div class="navBtn__btn">
+        <div class="navBtn__line"></div>
+      </div>
+    </div>
   </nav>
   <main class="home" id="home">
     <div class="home__containerTitles">
@@ -278,7 +283,7 @@
           </div>
         </div>
         <div class="containerForm">
-          <form action="" class="form">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
             <fieldset class="form__fieldset">
               <p class="form__legend">
                 Join our waitlist and meanwhile let us invite you to our events!
