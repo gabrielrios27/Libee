@@ -13,7 +13,8 @@
 }
 .navbar {
   width: 100%;
-  height: 8.875em;
+  height: 100%;
+  max-height: 8.875em;
   padding: 0.875em 1.5625em;
   position: fixed;
   z-index: 200;
@@ -33,7 +34,66 @@
 .navBtn {
   display: none;
   .navBtn__btn {
+    width: 45px;
+    height: 30px;
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .navBtn__line {
+      position: relative;
+      width: 30px;
+      height: 2px;
+      background-color: white;
+      transition: all 0.3s linear;
+      border-radius: 10px;
+      &::after,
+      &::before {
+        content: "";
+        width: 30px;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        transition: all 0.3s linear;
+        border-radius: 10px;
+      }
+      &::before {
+        top: 10px;
+      }
+      &::after {
+        bottom: 10px;
+      }
+    }
+    .navBtn__line--open {
+      transform: rotateZ(45deg);
+      &::before {
+        top: 0px;
+      }
+      &::after {
+        bottom: 0px;
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+}
+.navMenu {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 120px;
+  .navMenu__option {
+    list-style: none;
+    .navMenu__link {
+      text-decoration: none;
+      font-size: 20px;
+      padding: 10px 50px;
+      display: inline-block;
+      transition: all 0.3s linear;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
@@ -584,14 +644,28 @@
   .home {
     font-size: 9px;
   }
-  // .navbar {
-  //   .navList {
-  //     display: none;
-  //   }
-  // }
-  // .navBtn {
-  //   display: flex;
-  // }
+  .navbar {
+    transition: all 0.2s linear;
+    overflow: hidden;
+    .navList {
+      display: none;
+    }
+  }
+  .navMenu {
+    display: flex;
+  }
+  .navBarMenu {
+    height: 120%;
+    max-height: 120vh;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .navBtn {
+    display: flex;
+  }
   .network {
     font-size: 7px;
   }

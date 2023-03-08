@@ -14,6 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
   invalidForm: boolean;
+  openMenuNav: boolean;
   constructor(private _fb: FormBuilder, private _userSvc: UserService) {
     this.startLoader = true;
     this.form = this._fb.group({
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       iWorkAs: [],
     });
     this.invalidForm = false;
+    this.openMenuNav = false;
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
@@ -53,5 +55,11 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log('Error en envío de fomulario ');
       },
     });
+  }
+  OnNavBtn() {
+    this.openMenuNav = !this.openMenuNav;
+  }
+  closeNavBtn() {
+    this.openMenuNav = false;
   }
 }

@@ -1,6 +1,6 @@
 <div class="libee">
-  <nav class="navbar">
-    <a class="logo" href="#home">
+  <nav class="navbar" [ngClass]="openMenuNav ? 'navBarMenu' : ''">
+    <a class="logo" href="#home" (click)="closeNavBtn()">
       <img
         class="logo__img"
         src="../assets/icons/logo-Libee.webp"
@@ -19,9 +19,29 @@
         <a class="navList__link" href="#contact">Contacto</a>
       </li>
     </ul>
+    <ul class="navMenu">
+      <li class="navMenu__option">
+        <a class="navMenu__link" href="#aboutNetwork" (click)="OnNavBtn()"
+          >Red</a
+        >
+      </li>
+      <li class="navMenu__option">
+        <a class="navMenu__link" href="#about" (click)="OnNavBtn()"
+          >Acerca de</a
+        >
+      </li>
+      <li class="navMenu__option">
+        <a class="navMenu__link" href="#contact" (click)="OnNavBtn()"
+          >Contacto</a
+        >
+      </li>
+    </ul>
     <div class="navBtn">
-      <div class="navBtn__btn">
-        <div class="navBtn__line"></div>
+      <div class="navBtn__btn" (click)="OnNavBtn()">
+        <div
+          class="navBtn__line"
+          [ngClass]="openMenuNav ? 'navBtn__line--open' : ''"
+        ></div>
       </div>
     </div>
   </nav>
