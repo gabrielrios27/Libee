@@ -1,0 +1,43 @@
+<div class="card" [ngClass]="isMiddle ? 'card--scale' : ''">
+  <div class="card__containerDetails">
+    <img class="card__img" src="../../{{ member.img }}" alt="Image of Member" />
+    <h3 class="card__name">{{ member.name }}, {{ member.age }}</h3>
+    <div class="card__containerProfesions">
+      <p class="card__profesion" *ngFor="let item of member.profesion">
+        {{ item }}
+      </p>
+    </div>
+    <div class="card__containerAfinity">
+      <p class="card__afinity">Afinidad {{ member.afinity }}%</p>
+      <!-- Aqui barra de progreso -->
+      <div class="card__containerProgressBar">
+        <div class="card__progressBar" [style.width.%]="member.afinity"></div>
+      </div>
+    </div>
+    <p class="card__titlePoi">POI</p>
+    <div class="card__containerPoi">
+      <ng-container *ngFor="let poi of member.poi">
+        <img
+          class="card__poiIcon"
+          *ngIf="poi === 'hexa'"
+          src="../../../assets/icons/poi-hexa.png"
+          alt="Icono de POI"
+        />
+        <img
+          class="card__poiIcon"
+          *ngIf="poi === 'diamont'"
+          src="../../../assets/icons/poi-diamont.png"
+          alt="Icono de POI"
+        />
+        <img
+          class="card__poiIcon"
+          *ngIf="poi === 'purple'"
+          src="../../../assets/icons/poi-purple.png"
+          alt="Icono de POI"
+        />
+      </ng-container>
+    </div>
+  </div>
+  <div class="card__background"></div>
+  <div class="afinity__shadowCenter" *ngIf="index === 2"></div>
+</div>

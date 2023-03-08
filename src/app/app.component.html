@@ -143,7 +143,7 @@
           exitosas alrededor del mundo mediante
           <span class="afinity__title--boldItalic">AfinityMatch</span>.
         </p>
-        <div class="afinity__containerCards">
+        <!-- <div class="afinity__containerCards">
           <img
             class="afinity__card afinity__card--responsive460None"
             src="../assets/images/card-ZOE.webp"
@@ -177,6 +177,14 @@
             alt="Card"
             loading="lazy"
           />
+        </div> -->
+        <div class="afinity__containerCards">
+          <app-card
+            class="afinity__card"
+            *ngFor="let member of mockMembers; let i = index"
+            [member]="member"
+            [index]="i"
+          ></app-card>
         </div>
       </section>
       <div class="network__containerTransition1">
@@ -305,38 +313,44 @@
         <div class="containerForm">
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
             <fieldset class="form__fieldset">
+              <!-- Join our waitlist and meanwhile let us invite you to our events! -->
               <p class="form__legend">
-                Join our waitlist and meanwhile let us invite you to our events!
+                ¡Únase a nuestra lista de espera y, mientras tanto, permítanos
+                invitarlo a nuestros eventos!
               </p>
-              <label class="form__label" for="name">Your name</label><br />
+              <label class="form__label" for="name">Tu nombre</label><br />
               <input
                 class="form__input"
                 type="text"
                 id="name"
                 name="name"
               /><br />
-              <label class="form__label" for="email">email</label><br />
+              <label class="form__label" for="email">Email</label><br />
               <input
                 class="form__input"
                 type="email"
                 id="email"
                 email="name"
               /><br />
-              <label class="form__label" for="super">I am super...</label><br />
+              <label class="form__label" for="super">Soy super...</label><br />
               <input
                 class="form__input"
                 type="text"
                 id="super"
                 name="super"
               /><br />
-              <label class="form__label" for="work">I work as a...</label><br />
+              <label class="form__label" for="work">Trabajo como...</label
+              ><br />
               <input
                 class="form__input"
                 type="text"
                 id="work"
                 name="work"
               /><br />
-              <input class="form__submit" type="submit" value="Submit" />
+              <p class="form__error" *ngIf="invalidForm">
+                Debe completar todos los campos
+              </p>
+              <input class="form__submit" type="submit" value="Enviar" />
             </fieldset>
           </form>
           <img
