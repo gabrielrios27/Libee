@@ -35,6 +35,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
     this.invalidForm = false;
     this.openMenuNav = false;
+    // Mock para cards con miembros del equipo
     this.mockMembers = [
       {
         name: 'Zoe',
@@ -80,6 +81,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
+    // Para loader inicial de carga de pagina
     setTimeout(() => {
       this.startLoader = false;
     }, 1000);
@@ -96,16 +98,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     const { name, email, imSuper, iWorkAs } = this.form.value;
 
     console.log('Enviado: ', this.form.value);
-
-    // this._userSvc.signUp(name, email, imSuper, iWorkAs).subscribe({
-    //   next: (resp: any) => {
-    //     console.log('Formulario enviado: ', resp);
-    //   },
-    //   error: (error: any) => {
-    //     console.log('Error en envío de fomulario ');
-    //   },
-    // });
+    // El siguiente servicio solo funcionara una vez que se escriba el endpoint real en el servicio
+    this._userSvc.signUp(name, email, imSuper, iWorkAs).subscribe({
+      next: (resp: any) => {
+        console.log('Formulario enviado: ', resp);
+      },
+      error: (error: any) => {
+        console.log('Error en envío de fomulario ');
+      },
+    });
   }
+  // Para comportamiento de botón hamburguesa
   OnNavBtn() {
     this.openMenuNav = !this.openMenuNav;
   }

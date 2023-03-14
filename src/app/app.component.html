@@ -1,5 +1,8 @@
+<!-- Contenedor General -->
 <div class="libee">
+  <!-- Barra de navegación -->
   <nav class="navbar" [ngClass]="openMenuNav ? 'navBarMenu' : ''">
+    <!-- Logo -->
     <a class="logo" href="#home" (click)="closeNavBtn()">
       <img
         class="logo__img"
@@ -8,6 +11,7 @@
       />
       <h1 class="logo__text">Libee</h1>
     </a>
+    <!-- Links de navegación desktop -->
     <ul class="navList">
       <li class="navList__option">
         <a class="navList__link" href="#aboutNetwork">Red</a>
@@ -19,6 +23,7 @@
         <a class="navList__link" href="#contact">Contacto</a>
       </li>
     </ul>
+    <!-- Links de navegación Mobile -->
     <ul class="navMenu">
       <li class="navMenu__option">
         <a class="navMenu__link" href="#aboutNetwork" (click)="OnNavBtn()"
@@ -36,6 +41,7 @@
         >
       </li>
     </ul>
+    <!-- Botón Hamburguesa -->
     <div class="navBtn">
       <div class="navBtn__btn" (click)="OnNavBtn()">
         <div
@@ -45,6 +51,7 @@
       </div>
     </div>
   </nav>
+  <!-- Home -->
   <div class="containerHome">
     <main class="home" id="home">
       <div class="home__containerTitles">
@@ -57,33 +64,8 @@
           <h3 class="home__bigSubTitle">tu <br />mejor <br />versión.</h3>
         </div>
       </div>
-      <!-- <div class="home__containerIcons">
-        <a class="home__youTube" href="">
-          <img
-            class="home__icon"
-            src="../assets/icons/youtube.webp"
-            alt="Icon YouTube"
-          />
-          <img
-            class="home__icon home__icon--hover"
-            src="../assets/icons/youtube-color.webp"
-            alt="Icon YouTube"
-          />
-        </a>
-        <a class="home__instagram" href="">
-          <img
-            class="home__icon"
-            src="../assets/icons/instagram.webp"
-            alt="Icon Instagram"
-          />
-          <img
-            class="home__icon home__icon--hover"
-            src="../assets/icons/instagram-color.webp"
-            alt="Icon Instagram"
-          />
-        </a>
-      </div> -->
     </main>
+    <!-- Iconos de youtube e instagram -->
     <div class="home__containerIcons">
       <a class="home__youTube" href="">
         <img
@@ -110,14 +92,18 @@
         />
       </a>
     </div>
+    <!-- Imagen de transición entre seccciones - ola purpura -->
     <img
       class="main__bgWave"
       src="../assets/images/waveLanding11.svg"
       alt="Wave"
     />
   </div>
+  <!-- Contenedor gral. con secciones de landing -->
   <div class="network">
+    <!-- Contenedor con fondo en degrade hasta footer -->
     <div class="network__bgClasic">
+      <!-- Sección de POR QUE RED SOCIAL -->
       <section class="about" id="aboutNetwork">
         <img
           class="about__imgPhone"
@@ -142,6 +128,7 @@
           </div>
         </div>
       </section>
+      <!-- Imagen de transición entre secciones -->
       <div class="network__containerTransition1">
         <img
           class="network__transition1"
@@ -149,6 +136,7 @@
           alt="Degrade oscuro - Transición de sección"
           loading="lazy"
         />
+        <!-- Flechas hacia abajo -->
         <div class="network__containerIconTransition1">
           <img
             class="network__iconTransition1"
@@ -165,48 +153,16 @@
           />
         </div>
       </div>
+      <!-- Sección de AFINITYMATCH -->
       <section class="afinity">
         <p class="afinity__title">
           Estamos construyendo una comunidad de personas cretivas y naturalmente
           exitosas alrededor del mundo mediante
           <span class="afinity__title--boldItalic">AfinityMatch</span>.
         </p>
-        <!-- <div class="afinity__containerCards">
-          <img
-            class="afinity__card afinity__card--responsive460None"
-            src="../assets/images/card-ZOE.webp"
-            alt="Card"
-            loading="lazy"
-          />
-          <img
-            class="afinity__card afinity__card--responsiveNone"
-            src="../assets/images/card-SEBA.webp"
-            alt="Card"
-            loading="lazy"
-          />
-          <div class="afinity__containerCenter">
-            <img
-              class="afinity__card afinity__card--center"
-              src="../assets/images/card-CARTAS-DE-USUARIO.webp"
-              alt="Card"
-              loading="lazy"
-            />
-            <div class="afinity__shadowCenter"></div>
-          </div>
-          <img
-            class="afinity__card afinity__card--responsiveNone"
-            src="../assets/images/card-GONZA.webp"
-            alt="Card"
-            loading="lazy"
-          />
-          <img
-            class="afinity__card afinity__card--responsive460None"
-            src="../assets/images/card-JUAN_2.webp"
-            alt="Card"
-            loading="lazy"
-          />
-        </div> -->
+        <!-- Contenedor de Cards -->
         <div class="afinity__containerCards">
+          <!-- Cards -->
           <app-card
             class="afinity__card"
             *ngFor="let member of mockMembers; let i = index"
@@ -215,6 +171,7 @@
           ></app-card>
         </div>
       </section>
+      <!-- Imagen de transición entre secciones -->
       <div class="network__containerTransition1">
         <img
           id="about"
@@ -224,7 +181,9 @@
           loading="lazy"
         />
       </div>
+      <!-- Sección de PERFIL LIBEE -->
       <section class="way">
+        <!-- Contenedor de imagen y explicación de Creación de Perfil Libee-->
         <div class="way__metod">
           <img
             class="way__img"
@@ -244,6 +203,7 @@
             </p>
           </div>
         </div>
+        <!-- Contenedor de imagen y explicación de POI-->
         <div class="way__metod way__metod--poi">
           <div class="way__containerDetails">
             <h3 class="way__title">Proof of Interaction</h3>
@@ -263,6 +223,7 @@
             loading="lazy"
           />
         </div>
+        <!-- Contenedor de imagen y explicación de Bioespacios-->
         <div class="way__metod way__metod--bio">
           <img
             class="way__img"
@@ -281,6 +242,7 @@
             </p>
           </div>
         </div>
+        <!-- Contenedor de Que Significa ser Liber-->
         <div class="beLiber">
           <h3 class="beLiber__title">Ser Liber es...</h3>
           <p class="beLiber__description">
@@ -293,6 +255,7 @@
           </p>
         </div>
       </section>
+      <!-- Imagen de transición entre secciones -->
       <div class="network__containerTransition1">
         <img
           class="network__transition1"
@@ -301,12 +264,15 @@
           loading="lazy"
         />
       </div>
+      <!-- Sección de CONTACTO -->
       <section class="contact" id="contact">
+        <!-- Contenedor UPS! -->
         <div class="ups">
           <h3 class="ups__title">Ups!</h3>
           <h4 class="ups__subtitle">
             La versión beta alcanzó el máximo de usuarios hasta el momento.
           </h4>
+          <!-- Iconos de youtube e instagram -->
           <div class="ups__containerIcons">
             <a class="ups__youTube" href="">
               <img
@@ -338,10 +304,11 @@
             </a>
           </div>
         </div>
+        <!-- Contenedor Form -->
         <div class="containerForm">
+          <!-- FORM -->
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
             <fieldset class="form__fieldset">
-              <!-- Join our waitlist and meanwhile let us invite you to our events! -->
               <p class="form__legend">
                 ¡Únase a nuestra lista de espera y, mientras tanto, permítanos
                 invitarlo a nuestros eventos!
@@ -381,12 +348,14 @@
               <input class="form__submit" type="submit" value="Enviar" />
             </fieldset>
           </form>
+          <!-- Burbuja flotando detras de form -->
           <img
             class="containerForm__bubble containerForm__bubble--up"
             src="../assets/images/bubble.webp"
             alt="Burbuja con gradiente de colores en el fondo"
             loading="lazy"
           />
+          <!-- Burbuja flotando detras de form -->
           <img
             class="containerForm__bubble containerForm__bubble--down"
             src="../assets/images/bubble.webp"
@@ -397,7 +366,9 @@
       </section>
     </div>
   </div>
+  <!-- FOOTER -->
   <footer class="footer">
+    <!-- Logo -->
     <div class="containerLogo">
       <div class="logo">
         <img
@@ -423,6 +394,7 @@
     </div> -->
   </footer>
 </div>
+<!-- Loader inicial para carga de pagina -->
 <div class="startLoader" *ngIf="startLoader">
   <img
     class="startLoader__icon"

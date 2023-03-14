@@ -9,12 +9,13 @@
     </div>
     <div class="card__containerAfinity">
       <p class="card__afinity">Afinidad {{ member.afinity }}%</p>
-      <!-- Aqui barra de progreso -->
+      <!-- Barra de progreso -->
       <div class="card__containerProgressBar">
         <div class="card__progressBar" [style.width.%]="member.afinity"></div>
       </div>
     </div>
     <p class="card__titlePoi">POI</p>
+    <!-- Contenedor con iconos POI -->
     <div class="card__containerPoi">
       <ng-container *ngFor="let poi of member.poi">
         <img
