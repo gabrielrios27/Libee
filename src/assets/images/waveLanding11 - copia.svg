@@ -2,9 +2,8 @@
      width="100%" viewBox="0 0 1913 163" enable-background="new 0 0 1913 163" xml:space="preserve">
      <defs>
          <linearGradient id="gradient" gradientTransform="rotate(90)">
-             <stop offset="0%" stop-color="#6f4ca2"/>
-             <!--#593980, #513375 -->
-             <stop offset="100%" stop-color="#6f4ca2"/>
+             <stop offset="0%" stop-color="#593980"/>
+             <stop offset="100%" stop-color="#704ca4"/>
          </linearGradient>
      </defs>
      <path fill="url(#gradient)" opacity="1.000000" stroke="none" 

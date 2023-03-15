@@ -250,13 +250,23 @@
     opacity: 1;
   }
 }
-.main__bgWave {
+.main__containerBgWave {
   position: absolute;
   bottom: -2px;
   left: -2px;
   right: -2px;
   width: 101%;
-  z-index: 10;
+  z-index: 12;
+  display: flex;
+}
+.main__bgWave {
+  width: 101%;
+}
+.main__bgWave--shadow {
+  position: absolute;
+  top: 0;
+  width: 101%;
+  z-index: 12;
 }
 .network {
   font-size: 0.842vw;
@@ -267,12 +277,13 @@
   justify-content: center;
   width: 100%;
   z-index: 10;
-
+  // 6f4ca2
+  // #5d3e87,
   .network__bgClasic {
     width: 100%;
     background: linear-gradient(
       to bottom,
-      #5d3e87,
+      #6f4aa5,
       #7860c1,
       #6e71d4,
       #5f82e7,
