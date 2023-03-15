@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Member } from './interfaces/user.interfaces';
@@ -18,6 +25,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   openMenuNav: boolean;
 
   mockMembers: Member[];
+  @ViewChild('imgPhone') imgPhone!: ElementRef;
+  @ViewChild('about') about!: ElementRef;
+
   constructor(private _fb: FormBuilder, private _userSvc: UserService) {
     this.startLoader = true;
     this.form = this._fb.group({
@@ -84,9 +94,37 @@ export class AppComponent implements OnInit, AfterViewInit {
     // Para loader inicial de carga de pagina
     setTimeout(() => {
       this.startLoader = false;
+      this.onWindowScroll();
     }, 1000);
   }
+  // Para agrandar imagen de telefono cuando usuario llega a su sección
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    const imageElement = this.imgPhone.nativeElement;
+    const sectionElement = this.about.nativeElement;
 
+    const sectionOffsetTop = sectionElement.getBoundingClientRect().top;
+    const imageOffsetTop =
+      imageElement.getBoundingClientRect().top - sectionOffsetTop;
+    const windowHeight = window.innerHeight;
+
+    console.log('window.scrollY : ', window.scrollY);
+    console.log('windowHeight : ', windowHeight);
+    console.log('sectionOffsetTop : ', sectionOffsetTop);
+    console.log('imageOffsetTop : ', imageOffsetTop);
+
+    if (
+      window.scrollY + windowHeight >=
+      sectionOffsetTop + imageOffsetTop * 3
+    ) {
+      imageElement.style.transform = 'none';
+      console.log('scale');
+    } else {
+      console.log('none');
+      imageElement.style.transform = 'scale(0.5)';
+    }
+  }
+  // Click en submit form
   onSubmit() {
     console.log('this.form.invalid: ', this.form.invalid);
 

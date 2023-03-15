@@ -301,6 +301,8 @@
   .about__imgPhone {
     width: 36%;
     height: auto;
+    transition: all 1s ease-in-out;
+    transform: scale(0.5);
   }
   .about__containerDetails {
     max-width: 98ch;
