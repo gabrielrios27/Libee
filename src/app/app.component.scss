@@ -177,26 +177,7 @@
       }
     }
   }
-  // .home__containerIcons {
-  //   position: absolute;
-  //   z-index: 20;
-  //   bottom: 3em;
-  //   right: 4em;
-  //   display: flex;
-  //   gap: 2.27em;
-  //   .home__icon {
-  //     width: 4.54em;
-  //     height: 4.54em;
-  //     opacity: 1;
-  //   }
-  //   .home__icon--hover {
-  //     transition: all 0.3s ease;
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     opacity: 0;
-  //   }
-  // }
+
   .home__youTube {
     position: relative;
     &:hover .home__icon--hover {
@@ -209,13 +190,6 @@
       opacity: 1;
     }
   }
-  // .main__bgWave {
-  //   position: absolute;
-  //   bottom: -2px;
-  //   left: -2px;
-  //   right: -2px;
-  //   width: 101%;
-  // }
 }
 .home__containerIcons {
   font-size: 1.158vw;
