@@ -1,12 +1,12 @@
 <!-- Contenedor General -->
-<div class="libee">
+<div class="libee" scrollSpy>
   <!-- Barra de navegación -->
   <nav class="navbar" [ngClass]="openMenuNav ? 'navBarMenu' : ''">
     <!-- Logo -->
     <a class="logo" href="#home" (click)="closeNavBtn()">
       <img
         class="logo__img"
-        src="../assets/icons/logo-Libee.webp"
+        src="../assets/icons/LOGO-LIBEE-EN-ALTA-66.webp"
         alt="Logo Libee"
       />
       <h1 class="logo__text">Libee</h1>
@@ -191,12 +191,11 @@
       <!-- Sección de PERFIL LIBEE -->
       <section class="way">
         <!-- Contenedor de imagen y explicación de Creación de Perfil Libee-->
-        <div class="way__metod">
+        <section class="way__metod">
           <img
             class="way__img"
             src="../assets/images/LIBEE-LANDINGTIPO-CON-PLANTAS.webp"
             alt="Man into plants"
-            loading="lazy"
           />
           <div class="way__containerDetails">
             <h3 class="way__title">
@@ -209,9 +208,9 @@
               irá completando a medida que interactúes en la red.
             </p>
           </div>
-        </div>
+        </section>
         <!-- Contenedor de imagen y explicación de POI-->
-        <div class="way__metod way__metod--poi">
+        <section class="way__metod way__metod--poi">
           <div class="way__containerDetails">
             <h3 class="way__title">Proof of Interaction</h3>
             <p class="way__description">
@@ -227,16 +226,14 @@
             class="way__img way__containerDetails--marg"
             src="../assets/images/LIBEE-LANDINGMATCH.webp"
             alt="Man into plants"
-            loading="lazy"
           />
-        </div>
+        </section>
         <!-- Contenedor de imagen y explicación de Bioespacios-->
-        <div class="way__metod way__metod--bio">
+        <section class="way__metod way__metod--bio">
           <img
             class="way__img"
             src="../assets/images/LIBEE-LANDINGBIOESPACIOS.webp"
             alt="People working"
-            loading="lazy"
           />
           <div class="way__containerDetails">
             <h3 class="way__title">Bioespacios</h3>
@@ -248,7 +245,7 @@
               momentos de disfrute y aprendizaje.
             </p>
           </div>
-        </div>
+        </section>
         <!-- Contenedor de Que Significa ser Liber-->
         <div class="beLiber">
           <h3 class="beLiber__title">Ser Liber es...</h3>
@@ -380,10 +377,10 @@
       <div class="logo">
         <img
           class="logo__img"
-          src="../assets/icons/logo-Libee.webp"
+          src="../assets/icons/LOGO-LIBEE-EN-ALTA-66.webp"
           alt="Logo Libee"
         />
-        <h1 class="logo__text">Libee</h1>
+        <h3 class="logo__text">Libee</h3>
       </div>
     </div>
     <!-- <div class="companies">
@@ -405,7 +402,7 @@
 <div class="startLoader" *ngIf="startLoader">
   <img
     class="startLoader__icon"
-    src="../assets/icons/logo-Libee.webp"
+    src="../assets/icons/LOGO-LIBEE-EN-ALTA-66.webp"
     alt="Logo Libee"
   />
 </div>

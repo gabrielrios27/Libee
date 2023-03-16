@@ -7,9 +7,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CardComponent } from './components/card/card.component';
+import { ScrollAnimationDirective } from './services/scroll-animation.directive';
+import { ScrollSpyModule } from 'ngx-scrollspy';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent],
+  declarations: [AppComponent, CardComponent, ScrollAnimationDirective],
   imports: [
     CommonModule,
     BrowserModule,
@@ -17,6 +19,7 @@ import { CardComponent } from './components/card/card.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ScrollSpyModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

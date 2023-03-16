@@ -96,6 +96,37 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.startLoader = false;
       this.onWindowScroll();
     }, 1000);
+    // this.scrollSpyService.getObservable('window').subscribe((e: any) => {
+    //   const elements = document.querySelectorAll('.animated-image');
+    //   let i = 1;
+    //   elements.forEach((element: any) => {
+    //     const sectionOffsetTop = element
+    //       .closest('section')
+    //       .getBoundingClientRect().top;
+
+    //     const imageOffsetTop =
+    //       element.getBoundingClientRect().top - sectionOffsetTop;
+    //     const windowHeight = window.innerHeight;
+    //     i++;
+    //     if ((i = 2)) {
+    //       console.log(
+    //         '------------------------------------------------------- '
+    //       );
+    //       console.log('sectionOffsetTop: ', sectionOffsetTop);
+    //       console.log('imageOffsetTop: ', imageOffsetTop);
+    //       console.log(window.scrollY + windowHeight);
+    //     }
+
+    //     if (
+    //       window.scrollY + windowHeight >=
+    //       sectionOffsetTop + imageOffsetTop
+    //     ) {
+    //       element.style.transform = 'none';
+    //     } else {
+    //       element.style.transform = 'scale(0.5)';
+    //     }
+    //   });
+    // });
   }
   // Para agrandar imagen de telefono cuando usuario llega a su sección
   @HostListener('window:scroll', ['$event'])
@@ -124,6 +155,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       imageElement.style.transform = 'scale(0.5)';
     }
   }
+
   // Click en submit form
   onSubmit() {
     console.log('this.form.invalid: ', this.form.invalid);
