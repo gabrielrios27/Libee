@@ -19,8 +19,6 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('this.index: ',this.index);
-    
     if (this.index === 2) {
       this.isMiddle = true;
     }

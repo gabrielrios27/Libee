@@ -22,8 +22,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
   invalidForm: boolean;
+  emailAlreadyExist: boolean;
   openMenuNav: boolean;
-
+  isSend: boolean;
+  isSending: boolean;
+  errorToSend: boolean;
   mockMembers: Member[];
   @ViewChild('imgPhone') imgPhone!: ElementRef;
   @ViewChild('about') about!: ElementRef;
@@ -41,7 +44,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         ],
       ],
       imSuper: [null, [Validators.required]],
-      iWorkAs: [],
+      iWorkAs: [null, [Validators.required]],
     });
     this.invalidForm = false;
     this.openMenuNav = false;
@@ -88,6 +91,10 @@ export class AppComponent implements OnInit, AfterViewInit {
         img: '../assets/images/members/JUAN.png',
       },
     ];
+    this.isSend = false;
+    this.isSending = false;
+    this.emailAlreadyExist = false;
+    this.errorToSend = false;
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
@@ -108,44 +115,45 @@ export class AppComponent implements OnInit, AfterViewInit {
       imageElement.getBoundingClientRect().top - sectionOffsetTop;
     const windowHeight = window.innerHeight;
 
-    console.log('window.scrollY : ', window.scrollY);
-    console.log('windowHeight : ', windowHeight);
-    console.log('sectionOffsetTop : ', sectionOffsetTop);
-    console.log('imageOffsetTop : ', imageOffsetTop);
-
     if (
       window.scrollY + windowHeight >=
       sectionOffsetTop + imageOffsetTop * 3
     ) {
       imageElement.style.transform = 'none';
-      console.log('scale');
     } else {
-      console.log('none');
       imageElement.style.transform = 'scale(0.5)';
     }
   }
 
   // Click en submit form
   onSubmit() {
-    console.log('this.form.invalid: ', this.form.invalid);
-
+    this.errorToSend = false;
     if (this.form.invalid) {
       this.invalidForm = true;
       return;
     }
+    this.isSending = true;
     this.invalidForm = false;
     const { name, email, imSuper, iWorkAs } = this.form.value;
 
-    console.log('Enviado: ', this.form.value);
     // El siguiente servicio solo funcionara una vez que se escriba el endpoint real en el servicio
     this._userSvc.signUp(name, email, imSuper, iWorkAs).subscribe({
       next: (resp: any) => {
-        console.log('Formulario enviado: ', resp);
+        this.form.reset();
+        this.isSending = false;
+        this.isSend = true;
       },
       error: (error: any) => {
-        console.log('Error en envío de fomulario ');
+        this.isSending = false;
+        this.isSend = false;
+        error.error.message === 'Already listed'
+          ? (this.emailAlreadyExist = true)
+          : (this.errorToSend = true);
       },
     });
+  }
+  changeEmail() {
+    this.emailAlreadyExist = false;
   }
   // Para comportamiento de botón hamburguesa
   OnNavBtn() {

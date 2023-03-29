@@ -10,7 +10,7 @@ export class UserService {
   baseUrl: string;
 
   constructor(private _http: HttpClient) {
-    this.baseUrl = ''; //AQUI DIRECCION A ENDPOINT PARA FORMULARIO
+    this.baseUrl = 'https://libeeappserver-production.up.railway.app/form'; //AQUI DIRECCION A ENDPOINT PARA FORMULARIO
   }
 
   signUp(
@@ -22,8 +22,8 @@ export class UserService {
     let user: UserForm = {
       name: name,
       email: email,
-      imSuper: imSuper,
-      iWorkAs: iWorkAs,
+      soft: imSuper,
+      hard: iWorkAs,
     };
     return this._http.post<any>(this.baseUrl, user);
   }

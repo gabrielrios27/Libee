@@ -1,8 +1,8 @@
 export interface UserForm {
   name: string;
   email: string;
-  imSuper: string;
-  iWorkAs: string;
+  soft: string;
+  hard: string;
 }
 export interface Member {
   name: string;
