@@ -30,7 +30,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   mockMembers: Member[];
   @ViewChild('imgPhone') imgPhone!: ElementRef;
   @ViewChild('about') about!: ElementRef;
-
+  latitude: any;
+  longitude: any;
   constructor(private _fb: FormBuilder, private _userSvc: UserService) {
     this.startLoader = true;
     this.form = this._fb.group({
@@ -103,6 +104,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.startLoader = false;
       this.onWindowScroll();
     }, 1000);
+    this.getLocation();
   }
   // Para agrandar imagen de telefono cuando usuario llega a su sección
   @HostListener('window:scroll', ['$event'])
@@ -161,5 +163,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   closeNavBtn() {
     this.openMenuNav = false;
+  }
+  getPosition(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (resp) => {
+          resolve({ lng: resp.coords.longitude, lat: resp.coords.latitude });
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
+  getLocation() {
+    this.getPosition().then((pos) => {
+      this.latitude = pos.lat;
+      this.longitude = pos.lng;
+      console.log('this.latitude :', this.latitude);
+      console.log('this.longitude: ', this.longitude);
+    });
   }
 }
